@@ -266,26 +266,6 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 .countdown-done{position:relative;margin-top:36px;font:500 clamp(28px,5vw,44px)/1.2 'Cormorant Garamond',serif;color:#f0fdfa;}
 
 .gallery-section{background:#04211e;}
-.carousel{position:relative;max-width:min(420px,80vw);margin:auto;}
-.carousel-main{aspect-ratio:2/3;overflow:hidden;border:1px solid #14b8a6;border-radius:16px;padding:8px;background:#134e4a;}
-.carousel-main img{width:100%;height:100%;object-fit:cover;border:1px solid rgba(20,184,166,.6);border-radius:10px;animation:image-in .65s ease both;}
-.carousel-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:2;
-  border:1px solid #14b8a6;color:#14b8a6;background:rgba(4,33,30,.85);
-  width:48px;height:48px;display:grid;place-items:center;transition:.25s;
-}
-.carousel-arrow:hover{background:#14b8a6;color:#04211e;}
-.carousel-arrow.left{left:-24px;}
-.carousel-arrow.right{right:-24px;}
-.gallery-strip{display:flex;gap:10px;justify-content:center;margin:26px auto 64px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:#14b8a6 rgba(20,184,166,.18);}
-.gallery-strip::-webkit-scrollbar{height:6px;}
-.gallery-strip::-webkit-scrollbar-track{background:rgba(20,184,166,.18);border-radius:99px;}
-.gallery-strip::-webkit-scrollbar-thumb{background:#14b8a6;border-radius:99px;}
-.gallery-strip::-webkit-scrollbar-thumb:hover{background:#5eead4;}
-.gallery-strip::-webkit-scrollbar-corner{background:transparent;}
-.gallery-strip button{padding:0;width:68px;aspect-ratio:1;opacity:.45;border:1px solid rgba(20,184,166,.55);border-radius:10px;overflow:hidden;background:#134e4a;flex:0 0 auto;transition:opacity .3s,border-color .3s;}
-.gallery-strip button.active{opacity:1;border-color:#14b8a6;}
-.gallery-strip img{width:100%;height:100%;object-fit:cover;border-radius:9px;}
 .gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:14px;}
 .gallery-grid button{min-height:195px;padding:0;border:1px solid rgba(20,184,166,.55);border-radius:14px;overflow:hidden;background:#134e4a;transition:border-color .3s,box-shadow .3s;}
 .gallery-grid button:hover{border-color:#14b8a6;box-shadow:0 10px 26px rgba(0,0,0,.3);}
@@ -311,7 +291,7 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 .outline-button{border:1px solid #14b8a6;color:#f0fdfa;}
 .rose-button:hover,.outline-button:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.22);}
 
-.closing-section{position:relative;text-align:center;padding:160px 24px 120px;background:#134e4a;overflow:hidden;}
+.closing-section{position:relative;text-align:center;padding:0 24px 120px;background:#134e4a;overflow:hidden;}
 .closing-section::before{
   content:'';position:absolute;inset:0;opacity:.1;pointer-events:none;
   background-image:radial-gradient(#5eead4 .8px,transparent .8px);background-size:26px 26px;
@@ -375,11 +355,9 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 }
 .footer-contact a:hover{background:#14b8a6;color:#04211e;border-color:#14b8a6;}
 .footer-contact a svg{flex-shrink:0;}
-.tight-closing .closing-section{padding-top:88px;}
 .tight-closing .is-last-block{padding-bottom:72px;}
 .tight-closing .is-last-block .section-inner{padding-bottom:72px;}
 @media (max-width:700px){
-  .tight-closing .closing-section{padding-top:76px;}
   .tight-closing .is-last-block{padding-bottom:58px;}
   .tight-closing .is-last-block .section-inner{padding-bottom:58px;}
 }
@@ -449,10 +427,6 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 
   .gallery-grid{grid-template-columns:1fr 1fr;}
   .gallery-grid button:nth-child(3n+1){grid-row:auto;grid-column:span 2;}
-  .gallery-strip{justify-content:flex-start;}
-  .carousel-arrow{width:42px;height:42px;}
-  .carousel-arrow.left{left:10px;}
-  .carousel-arrow.right{right:10px;}
 
   .swatch{width:80px;height:80px;}
   .music-control .label{display:none;}
@@ -482,7 +456,6 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 .portrait-image{border-radius:24px;}
 .family-card{border-radius:18px;}
 .story-image img{border-radius:18px;}
-.carousel-arrow,
 .lightbox-close,
 .lightbox-nav{border-radius:50%;}
 .swatch{border-radius:12px;}
@@ -658,20 +631,10 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
           <span class="divider-line right"></span>
         </div>
       </div>
-      <div class="carousel reveal reveal-up" id="carousel" hidden>
-        <button class="carousel-arrow left" type="button" id="carousel-prev" aria-label="Previous photo">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-        </button>
-        <div class="carousel-main"><img id="carousel-img" alt="Wedding gallery"></div>
-        <button class="carousel-arrow right" type="button" id="carousel-next" aria-label="Next photo">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </button>
-      </div>
-      <div class="gallery-strip reveal reveal-fade" id="gallery-strip"></div>
       <div class="gallery-grid" id="gallery-grid"></div>
     </section>
 
-    <section class="palette-section full-width" data-section="dress" hidden>
+    <!-- <section class="palette-section full-width" data-section="dress" hidden>
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow reveal reveal-fade" data-copy="dressEyebrow">A touch of colour</p>
@@ -684,7 +647,7 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
         </div>
         <div class="palette" id="palette"></div>
       </div>
-    </section>
+    </section> -->
 
     <section class="rsvp-section" data-section="rsvp" hidden>
       <p class="eyebrow reveal reveal-fade" data-copy="rsvpEyebrow">A place is waiting for you</p>
@@ -901,11 +864,12 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
       couplePhoto: null,
       gallery: [
         'assets/images/bride-groom.avif',
-        'assets/images/bride-groom-handlock.avif',
         'assets/images/bride-groom-pose-01.avif',
         'assets/images/bride-groom-pose-02.avif',
-        'assets/images/bride.avif',
-        'assets/images/groom.avif'
+        'assets/images/bride-groom-pose-03.avif',
+        'assets/images/bride-groom-pose-04.avif',
+        'assets/images/bride-groom-pose-05.avif'
+
       ],
       video: 'assets/videos/hero-play.mp4'
     },
@@ -942,9 +906,7 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
     features: Object.assign({}, DEFAULT_FEATURES),
     copy: Object.assign({}, BASE_COPY),
     gallery: [],
-    slide: 0,
-    galleryTimer: null,
-    galleryHover: false,
+    lightboxIndex: 0,
     lightbox: false,
     countdownTimer: null,
     music: { audio: null, url: null, playing: false, available: false },
@@ -1173,6 +1135,7 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 
   function renderDress(data) {
     var palette = document.getElementById('palette');
+    if (!palette) return;
     palette.innerHTML = '';
     var dress = data.dress || {};
     var entries = [
@@ -1292,35 +1255,6 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
     state.countdownTimer = setInterval(paint, 1000);
   }
 
-  function setGallerySlide(index) {
-    if (!state.gallery.length) return;
-    state.slide = (index + state.gallery.length) % state.gallery.length;
-    var main = document.getElementById('carousel-img');
-    var strip = document.getElementById('gallery-strip');
-    if (main) main.src = state.gallery[state.slide];
-    Array.prototype.forEach.call(strip.children, function (button, i) {
-      button.classList.toggle('active', i === state.slide);
-    });
-    var active = strip.children[state.slide];
-    if (active && strip.scrollTo) {
-      strip.scrollTo({ left: active.offsetLeft - (strip.clientWidth - active.clientWidth) / 2, behavior: 'smooth' });
-    }
-  }
-
-  function stopGalleryAutoplay() {
-    if (state.galleryTimer) { clearInterval(state.galleryTimer); state.galleryTimer = null; }
-  }
-
-  function startGalleryAutoplay() {
-    stopGalleryAutoplay();
-    if (state.gallery.length < 2) return;
-    state.galleryTimer = setInterval(function () {
-      var section = document.querySelector('[data-section="gallery"]');
-      var paused = document.hidden || state.lightbox || state.galleryHover || !section || section.hidden;
-      if (!paused) setGallerySlide(state.slide + 1);
-    }, 4000);
-  }
-
   function verifyImages(list) {
     return new Promise(function (resolve) {
       if (!list.length) return resolve([]);
@@ -1342,56 +1276,29 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 
   function renderGallery(data) {
     var requested = data.media.gallery.filter(has);
-    var strip = document.getElementById('gallery-strip');
     var grid = document.getElementById('gallery-grid');
-    var carousel = document.getElementById('carousel');
-    strip.innerHTML = '';
     grid.innerHTML = '';
-    stopGalleryAutoplay();
     state.gallery = [];
-    state.slide = 0;
+    state.lightboxIndex = 0;
     showSection('gallery', false);
 
     verifyImages(requested).then(function (gallery) {
       state.gallery = gallery;
 
-      if (!gallery.length) { stopGalleryAutoplay(); showSection('gallery', false); return; }
+      if (!gallery.length) { showSection('gallery', false); return; }
 
       gallery.forEach(function (src, index) {
         var label = (state.copy.galleryAlt || BASE_COPY.galleryAlt) + ' ' + (index + 1);
-        strip.insertAdjacentHTML('beforeend',
-          '<button type="button" data-slide="' + index + '" aria-label="' + esc(label) + '"><img src="' + esc(src) + '" alt=""></button>');
         grid.insertAdjacentHTML('beforeend',
           '<button type="button" class="reveal reveal-scale" data-lightbox="' + index + '" style="transition-delay:' + (index * 70) + 'ms">' +
           '<img src="' + esc(src) + '" alt="' + esc(label) + '"></button>');
       });
 
-      Array.prototype.forEach.call(strip.children, function (button) {
-        button.addEventListener('click', function () {
-          setGallerySlide(Number(button.getAttribute('data-slide')));
-          startGalleryAutoplay();
-        });
-      });
       Array.prototype.forEach.call(grid.children, function (button) {
         button.addEventListener('click', function () { openLightbox(Number(button.getAttribute('data-lightbox'))); });
       });
 
-      function pauseGallery() { state.galleryHover = true; }
-      function resumeGallery() { state.galleryHover = false; }
-      [carousel, strip].forEach(function (el) {
-        if (!el) return;
-        el.onmouseenter = pauseGallery;
-        el.onmouseleave = resumeGallery;
-        el.ontouchstart = pauseGallery;
-        el.ontouchend = resumeGallery;
-      });
-
-      var multi = gallery.length > 1;
-      carousel.hidden = !multi;
-      strip.hidden = !multi;
       grid.hidden = false;
-      if (multi) setGallerySlide(0);
-      startGalleryAutoplay();
 
       showSection('gallery', state.features.gallery && data.display.gallery !== false);
       observeReveals();
@@ -1405,6 +1312,9 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
     var allowed = state.features.video && data.display.video !== false && has(src);
     if (!allowed) { video.hidden = true; video.removeAttribute('src'); video.load(); return; }
     video.src = text(src);
+    video.playbackRate = 2;
+    video.onloadedmetadata = function () { video.playbackRate = 3; };
+    video.onplaying = function () { video.playbackRate = 3; };
     video.hidden = false;
     video.onerror = function () { video.hidden = true; };
   }
@@ -1511,8 +1421,8 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
   function openLightbox(index) {
     if (!state.gallery.length) return;
     var box = document.getElementById('lightbox');
-    setGallerySlide(index);
-    document.getElementById('lightbox-img').src = state.gallery[state.slide];
+    state.lightboxIndex = (index + state.gallery.length) % state.gallery.length;
+    document.getElementById('lightbox-img').src = state.gallery[state.lightboxIndex];
     box.hidden = false;
     state.lightbox = true;
     document.body.style.overflow = 'hidden';
@@ -1526,8 +1436,8 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
 
   function stepLightbox(delta) {
     if (document.getElementById('lightbox').hidden) return;
-    setGallerySlide(state.slide + delta);
-    document.getElementById('lightbox-img').src = state.gallery[state.slide];
+    state.lightboxIndex = (state.lightboxIndex + delta + state.gallery.length) % state.gallery.length;
+    document.getElementById('lightbox-img').src = state.gallery[state.lightboxIndex];
   }
 
   function applyInvitationType(data) {
@@ -1699,11 +1609,9 @@ body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;color:#f0fdfa;}
   function bindControls() {
     document.getElementById('open-invitation').addEventListener('click', openInvitation);
     document.getElementById('music-toggle').addEventListener('click', toggleMusic);
-    document.getElementById('carousel-prev').addEventListener('click', function () { setGallerySlide(state.slide - 1); startGalleryAutoplay(); });
-    document.getElementById('carousel-next').addEventListener('click', function () { setGallerySlide(state.slide + 1); startGalleryAutoplay(); });
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-    document.getElementById('lightbox-prev').addEventListener('click', function () { stepLightbox(-1); startGalleryAutoplay(); });
-    document.getElementById('lightbox-next').addEventListener('click', function () { stepLightbox(1); startGalleryAutoplay(); });
+    document.getElementById('lightbox-prev').addEventListener('click', function () { stepLightbox(-1); });
+    document.getElementById('lightbox-next').addEventListener('click', function () { stepLightbox(1); });
     document.getElementById('lightbox').addEventListener('click', function (event) {
       if (event.target === event.currentTarget) closeLightbox();
     });
